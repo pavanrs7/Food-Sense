@@ -123,4 +123,4 @@ Open a pull request. 🚀
 📜 License
 This project is licensed under the MIT License.
 📬 Contact
-For questions or feedback, reach out to pavanshetty6228@gmail.com, prajith.1543@gmail.com,farhanakhtar2401@gmail.com or open an issue on GitHub. 🌟
+For questions or feedback, reach out to pavanshetty6228@gmail.com, prajith.1543@gmail.com, nndna9@gmail.com, farhanakhtar2401@gmail.com or open an issue on GitHub. 🌟
