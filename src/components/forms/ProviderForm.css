@@ -1,0 +1,227 @@
+.form-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: #16a34a;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-error {
+  color: #dc2626;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.form-submit {
+  display: block;
+  width: 100%;
+  padding: 12px 24px;
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-submit:hover {
+  background-color: #15803d;
+  transform: scale(1.02);
+}
+
+.form-submit:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-success {
+  background-color: #dcfce7;
+  color: #166534;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.form-error-message {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.location-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.location-status.success {
+  color: #16a34a;
+}
+
+.location-status.error {
+  color: #dc2626;
+}
+/* Add these styles to your existing ProviderForm.css file */
+
+.location-toggle {
+  margin-bottom: 16px;
+}
+
+.toggle-container {
+  display: flex;
+  margin-top: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 10px;
+  background: #f9fafb;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+  background: #16a34a;
+  color: white;
+  font-weight: 500;
+}
+
+.toggle-btn:first-child {
+  border-right: 1px solid #d1d5db;
+}
+
+.manual-location {
+  background: #f9fafb;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    grid-template-columns: 2fr 2fr 1fr;
+  }
+}
+
+.geocode-btn {
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.geocode-btn:hover {
+  background-color: #15803d;
+}
+
+.geocode-btn:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+/* Add these styles to your existing ProviderForm.css file */
+
+.form-success {
+  background-color: #dcfce7;
+  color: #166534;
+  padding: 24px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #16a34a;
+  height: 60px;
+  width: 60px;
+  background-color: #bbf7d0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.form-success h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.form-success p {
+  font-size: 16px;
+  opacity: 0.9;
+}

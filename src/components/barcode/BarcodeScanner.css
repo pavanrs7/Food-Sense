@@ -1,0 +1,991 @@
+/* Barcode Scanner Styles */
+.barcode-scanner-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.barcode-scanner-container h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 28px;
+}
+
+.scanner-description {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+/* Scanner Controls */
+.scanner-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.scan-btn {
+  padding: 14px 28px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #28a745;
+  border-color: #28a745;
+  transition: all 0.3s ease;
+}
+
+.scan-btn:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scan-btn i {
+  font-size: 20px;
+}
+
+.manual-entry-toggle {
+  margin-top: 10px;
+}
+
+.manual-entry-form {
+  max-width: 400px;
+  margin: 0 auto 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.manual-entry-form .form-group {
+  margin-bottom: 15px;
+}
+
+/* Scanner View */
+/* Add these styles to ensure the scanner view and canvas are properly sized and positioned */
+.scanner-view {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 320px;
+  margin: 0 auto 30px;
+  overflow: hidden;
+  border: 3px solid #28a745;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.viewport {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ensure the canvas overlay is properly positioned */
+canvas.drawingBuffer {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 10 !important;
+}
+
+/* Make sure the video element fills the viewport */
+.scanner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Ensure the scanner overlay is properly positioned */
+.scanner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.scanner-crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border: 2px solid #28a745;
+  border-radius: 10px;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+  }
+}
+
+.scanner-crosshair::before,
+.scanner-crosshair::after {
+  content: "";
+  position: absolute;
+  background-color: #28a745;
+}
+
+.scanner-crosshair::before {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.scanner-crosshair::after {
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+}
+
+.cancel-scan-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* Success Message */
+.scan-success-message {
+  margin: 20px 0;
+}
+
+.scan-success-message .alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  padding: 15px;
+}
+
+.scan-success-message i {
+  font-size: 18px;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.loading-spinner .spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.25rem;
+}
+
+.loading-spinner p {
+  margin: 0;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Error Message */
+.error-message {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.error-message i {
+  font-size: 18px;
+}
+
+/* Product Details */
+.product-details {
+  margin: 40px 0;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-details h3 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.product-header {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.product-image {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.product-image-placeholder {
+  background-color: #e9ecef;
+  color: #6c757d;
+  font-size: 40px;
+}
+
+.product-info {
+  flex: 1;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-info h4 {
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.product-brand {
+  color: #6c757d;
+  margin-bottom: 15px;
+}
+
+.health-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.rating-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2c3e50;
+  position: relative;
+}
+
+.rating-circle::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.rating-circle span {
+  position: relative;
+  z-index: 1;
+}
+
+.rating-label {
+  margin-left: 10px;
+  color: #6c757d;
+}
+
+.nutrition-grade {
+  display: flex;
+  align-items: center;
+}
+
+.grade-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+}
+
+.grade-label {
+  margin-left: 10px;
+  color: #6c757d;
+}
+
+.product-details-section {
+  margin-bottom: 20px;
+}
+
+.product-details-section h5 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 5px;
+}
+
+.ingredients {
+  color: #495057;
+  line-height: 1.6;
+}
+
+.nutrition-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.nutrition-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nutrition-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.nutrition-value {
+  color: #6c757d;
+}
+
+.allergens-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.allergen-tag {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Alternative Products */
+.alternative-products {
+  margin: 40px 0;
+}
+
+.alternative-products h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.alternatives-description {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+.alternatives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.alternative-card {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alternative-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.alternative-image {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-right: 1px solid #dee2e6;
+}
+
+.alternative-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9ecef;
+  color: #6c757d;
+  font-size: 24px;
+}
+
+.alternative-info {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.alternative-info h5 {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #2c3e50;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.alternative-ratings {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.health-rating-small,
+.nutrition-grade-small {
+  display: flex;
+  align-items: center;
+}
+
+.rating-circle-small {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #2c3e50;
+  position: relative;
+}
+
+.rating-circle-small::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.rating-circle-small span {
+  position: relative;
+  z-index: 1;
+}
+
+.rating-label-small,
+.grade-label-small {
+  margin-left: 5px;
+  color: #6c757d;
+  font-size: 12px;
+}
+
+.grade-badge-small {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 10px;
+}
+
+.view-details-btn {
+  margin-top: auto;
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+/* Scan Again Button */
+.scan-again {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* Camera Permission Alert */
+.camera-permission-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin: 20px 0;
+  padding: 15px;
+}
+
+.camera-permission-alert i {
+  font-size: 24px;
+  margin-top: 3px;
+}
+
+/* Page Layout Fixes */
+.page-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.content-area {
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  padding-bottom: 60px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* Fix the page header spacing */
+.page-header {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding-top: 20px;
+}
+
+.page-header h1 {
+  color: #2c3e50;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.page-header .lead {
+  color: #6c757d;
+  font-size: 18px;
+}
+
+/* Fix footer positioning */
+footer {
+  width: calc(100% - 250px) !important;
+  margin-left: auto !important;
+  text-align: center;
+}
+
+/* Scanner Intro Section */
+.scanner-intro {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+.scanner-info h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.feature-list li i {
+  margin-right: 15px;
+  font-size: 18px;
+}
+
+.scanner-illustration {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* How It Works Section */
+.how-it-works {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.how-it-works h3 {
+  color: #2c3e50;
+}
+
+.step-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 25px 15px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Add the glowing effect on hover */
+.step-card::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(40, 167, 69, 0),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.step-card:hover::after {
+  opacity: 1;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(40, 167, 69, 0.7),
+    transparent
+  );
+  animation: glowPulse 1.5s infinite;
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.step-number {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #28a745;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.step-icon {
+  font-size: 36px;
+  color: #28a745;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.step-card h5 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  color: #6c757d;
+  font-size: 14px;
+}
+
+/* Scanner Tips Section */
+.scanner-tips {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.scanner-tips h3 {
+  color: #2c3e50;
+}
+
+.tip-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 25px 15px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Add the glowing effect on hover */
+.tip-card::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(23, 162, 184, 0),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.tip-card:hover::after {
+  opacity: 1;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(23, 162, 184, 0.7),
+    transparent
+  );
+  animation: glowPulseBlue 1.5s infinite;
+}
+
+@keyframes glowPulseBlue {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.tip-icon {
+  font-size: 36px;
+  color: #17a2b8;
+  margin-bottom: 15px;
+}
+
+.tip-card h5 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.tip-card p {
+  color: #6c757d;
+  font-size: 14px;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .content-area {
+    width: calc(100% - 200px);
+    margin-left: 200px;
+  }
+
+  footer {
+    width: calc(100% - 200px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-area {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  footer {
+    width: 100% !important;
+  }
+
+  .product-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-image {
+    margin-bottom: 15px;
+  }
+
+  .product-info {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .health-rating,
+  .nutrition-grade {
+    justify-content: center;
+  }
+
+  .nutrition-table {
+    grid-template-columns: 1fr;
+  }
+
+  .alternatives-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .scanner-view {
+    height: 240px;
+  }
+
+  .scanner-crosshair {
+    width: 150px;
+    height: 150px;
+  }
+}
+.card {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Add these styles to your existing BarcodeScanner.css file */
+
+.scanner-buttons {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+  padding: 0 20px;
+  height: 40px;
+}
+
+.capture-btn {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.capture-btn:hover {
+  background-color: #218838;
+}
+
+.cancel-scan-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.cancel-scan-btn:hover {
+  background-color: #c82333;
+}
+
+.captured-image-container {
+  text-align: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.captured-image-container h5 {
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.scanner-view {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 320px;
+  margin: 0 auto 30px;
+  overflow: hidden;
+  border: 3px solid #28a745;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.scanner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
