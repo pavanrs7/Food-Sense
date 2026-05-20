@@ -15,7 +15,7 @@ import {
   Building,
   LogOut,
 } from "lucide-react";
-import "./sidebar.css";
+import "./Sidebar.css";
 
 function Sidebar() {
   const location = useLocation();
