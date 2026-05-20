@@ -1,0 +1,604 @@
+/* Reset styles for full viewport coverage */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Full screen background */
+html {
+  background-color: #28a745;
+}
+
+body {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #c3cfe2 20%,
+    #c3cfe2 80%,
+    transparent 100%
+  );
+  min-height: 100vh;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px;
+  position: relative;
+  overflow: visible;
+  margin: 0;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.auth-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/pattern.svg") repeat;
+  opacity: 0.05;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 500px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(195, 207, 226, 0.5);
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.auth-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.3), 0 0 30px rgba(195, 207, 226, 0.7);
+}
+
+.auth-logo {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeInDown 0.6s ease-out;
+  padding: 0 24px;
+}
+
+.auth-logo h1 {
+  color: #2c3e50;
+  font-size: 36px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #4caf50 0%, #2196f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.auth-logo p {
+  color: #6c757d;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.auth-welcome {
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+  padding: 0 24px;
+  margin-bottom: 32px;
+}
+
+.auth-welcome h2 {
+  color: #2c3e50;
+  margin-bottom: 16px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.auth-welcome p {
+  color: #6c757d;
+  margin-bottom: 32px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeInUp 0.8s ease-out;
+  padding: 0 24px;
+  margin-bottom: 32px;
+}
+
+.auth-button {
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.auth-button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.auth-button.primary {
+  background-color: #4caf50;
+  color: white;
+  box-shadow: 0 4px 6px rgba(76, 175, 80, 0.2);
+}
+
+.auth-button.primary:hover {
+  background-color: #43a047;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3);
+}
+
+.auth-button.secondary {
+  background-color: #2196f3;
+  color: white;
+  box-shadow: 0 4px 6px rgba(33, 150, 243, 0.2);
+}
+
+.auth-button.secondary:hover {
+  background-color: #1e88e5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(33, 150, 243, 0.3);
+}
+
+.auth-button:not(.primary):not(.secondary) {
+  background-color: #f8f9fa;
+  color: #2c3e50;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.auth-button:not(.primary):not(.secondary):hover {
+  background-color: #f1f3f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form-container {
+  position: relative;
+  padding-top: 40px;
+  animation: fadeIn 0.6s ease-out;
+  padding: 24px 0;
+}
+
+.back-button {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: none;
+  border: none;
+  color: #6c757d;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  color: #4caf50;
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.auth-role-indicator {
+  text-align: center;
+  margin-bottom: 24px;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.role-badge.provider {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.role-badge.receiver {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+/* Clerk form customization */
+.auth-clerk-button {
+  background-color: #90ee90 !important;
+  color: #2c3e50 !important;
+  border-radius: 12px !important;
+  padding: 14px 24px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 4px 6px rgba(144, 238, 144, 0.2) !important;
+  width: 100% !important;
+  margin-top: 16px !important;
+}
+
+.auth-clerk-button:hover {
+  background-color: #98fb98 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(144, 238, 144, 0.3) !important;
+}
+
+.auth-clerk-link {
+  color: #90ee90 !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+}
+
+.auth-clerk-link:hover {
+  color: #98fb98 !important;
+}
+
+/* Clerk form inputs */
+.auth-clerk-input {
+  width: 100% !important;
+  padding: 12px 16px !important;
+  border-radius: 12px !important;
+  border: 1px solid #e0e0e0 !important;
+  font-size: 16px !important;
+  transition: all 0.3s ease !important;
+  background-color: #f8f9fa !important;
+}
+
+.auth-clerk-input:focus {
+  border-color: #90ee90 !important;
+  box-shadow: 0 0 0 2px rgba(144, 238, 144, 0.1) !important;
+  outline: none !important;
+}
+
+.auth-clerk-label {
+  color: #2c3e50 !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+  font-size: 14px !important;
+}
+
+/* Clerk social buttons */
+.auth-clerk-social-button {
+  width: 100% !important;
+  padding: 12px !important;
+  border-radius: 12px !important;
+  border: 1px solid #e0e0e0 !important;
+  background-color: white !important;
+  color: #2c3e50 !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+.auth-clerk-social-button:hover {
+  background-color: #f8f9fa !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Clerk form container */
+.cl-formButtonPrimary {
+  margin-top: 24px !important;
+}
+
+.cl-formFieldInput {
+  margin-bottom: 16px !important;
+}
+
+.cl-socialButtonsBlockButton {
+  margin-bottom: 8px !important;
+}
+
+.cl-dividerLine {
+  margin: 24px 0 !important;
+  border-color: #e0e0e0 !important;
+}
+
+.cl-headerTitle {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: #2c3e50 !important;
+  margin-bottom: 16px !important;
+}
+
+.cl-headerSubtitle {
+  color: #6c757d !important;
+  font-size: 14px !important;
+  margin-bottom: 24px !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+  .auth-card {
+    padding: 24px;
+  }
+
+  .auth-logo h1 {
+    font-size: 32px;
+  }
+
+  .auth-welcome h2 {
+    font-size: 24px;
+  }
+
+  .auth-button {
+    padding: 12px 20px;
+  }
+
+  .cl-card,
+  .cl-component,
+  .cl-main {
+    padding: 16px !important;
+  }
+
+  .auth-welcome,
+  .auth-buttons,
+  .auth-logo {
+    padding: 0 16px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Sign Out Page Styles */
+.sign-out-content {
+  text-align: center;
+  padding: 40px 24px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(76, 175, 80, 0.1);
+  border-radius: 50%;
+  border-top-color: #4caf50;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sign-out-content h2 {
+  color: #2c3e50;
+  font-size: 24px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.sign-out-content p {
+  color: #6c757d;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Clerk form container overrides */
+.cl-card {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 32px !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: none !important;
+}
+
+.cl-component {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 32px !important;
+}
+
+.cl-main {
+  padding: 32px !important;
+  margin: 0 !important;
+}
+
+.cl-form {
+  margin: 24px 0 !important;
+}
+
+.cl-formButtonPrimary {
+  margin: 24px 0 !important;
+}
+
+.cl-formFieldInput {
+  margin: 8px 0 16px !important;
+}
+
+.cl-socialButtonsBlockButton {
+  margin: 8px 0 !important;
+  padding: 12px 24px !important;
+}
+
+.cl-dividerLine {
+  margin: 32px 0 !important;
+  border-color: rgba(108, 117, 125, 0.2) !important;
+}
+
+.cl-headerTitle {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: #2c3e50 !important;
+  margin: 0 0 16px !important;
+  text-align: center !important;
+}
+
+.cl-headerSubtitle {
+  color: #6c757d !important;
+  font-size: 14px !important;
+  margin: 0 0 24px !important;
+  text-align: center !important;
+}
+
+.cl-footerActionText {
+  margin: 0 8px !important;
+}
+
+.cl-footerAction {
+  margin: 24px 0 0 !important;
+  text-align: center !important;
+}
+
+/* Additional form spacing fixes */
+.auth-form-container {
+  padding: 24px 0;
+}
+
+.auth-welcome {
+  padding: 0 24px;
+  margin-bottom: 32px;
+}
+
+.auth-buttons {
+  padding: 0 24px;
+  margin-bottom: 32px;
+}
+
+.auth-logo {
+  padding: 0 24px;
+  margin-bottom: 32px;
+}
+
+/* Sign out content spacing */
+.sign-out-content {
+  padding: 40px 24px;
+}
+
+/* Sign Up specific styles */
+.cl-formButtonPrimary[data-action="sign-up"] {
+  background-color: #90ee90 !important;
+  color: #2c3e50 !important;
+  box-shadow: 0 4px 6px rgba(144, 238, 144, 0.2) !important;
+}
+
+.cl-formButtonPrimary[data-action="sign-up"]:hover {
+  background-color: #98fb98 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(144, 238, 144, 0.3) !important;
+}
+
+/* Keep Sign In button original color */
+.cl-formButtonPrimary[data-action="sign-in"] {
+  background-color: #4caf50 !important;
+  color: white !important;
+  box-shadow: 0 4px 6px rgba(76, 175, 80, 0.2) !important;
+}
+
+.cl-formButtonPrimary[data-action="sign-in"]:hover {
+  background-color: #43a047 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3) !important;
+}

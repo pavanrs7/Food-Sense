@@ -1,0 +1,154 @@
+/* App layout structure */
+.app {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.app-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content area - properly aligned with sidebar */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Content area with proper sidebar spacing */
+.content-area {
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 80px; /* Space for footer */
+  overflow-x: hidden;
+  background-color: #f8f9fa;
+}
+
+/* Dashboard specific styles */
+.dashboard-container {
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Page container with proper alignment */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Page header styling */
+.page-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.page-description {
+  color: #6c757d;
+  font-size: 18px;
+}
+
+/* Placeholder page styling */
+.placeholder-page {
+  margin-left: 250px;
+  padding: 32px;
+  min-height: calc(100vh - 300px); /* Adjust for footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.placeholder-page h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.placeholder-page p {
+  font-size: 18px;
+  color: #666;
+  max-width: 600px;
+}
+
+/* Prevent horizontal scrollbars */
+body,
+html,
+#root,
+.app,
+.app-content,
+.main-content {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .content-area {
+    width: calc(100% - 200px);
+    margin-left: 200px;
+  }
+
+  .placeholder-page {
+    margin-left: 200px;
+  }
+
+  footer {
+    width: calc(100% - 200px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-area {
+    width: calc(100% - 60px);
+    margin-left: 60px;
+  }
+
+  .placeholder-page {
+    margin-left: 0;
+  }
+
+  footer {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+
+.error-container {
+  padding: 2rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-container h2 {
+  color: #dc2626;
+  margin-bottom: 1rem;
+}
+
+.error-container p {
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}

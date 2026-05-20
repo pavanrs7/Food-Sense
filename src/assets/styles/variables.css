@@ -1,0 +1,39 @@
+:root {
+  --primary-color: #7ab259;
+  --secondary-color: #4a4a4a;
+  --background-color: #f8f9fa;
+  --text-color: #333333;
+  --border-radius: 8px;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #689f4e;
+  border-color: #689f4e;
+}
+
+.map-container {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.distance-calculator {
+  border: 1px solid #e0e0e0;
+}
+
+.selected-point {
+  padding: 4px 0;
+  color: var(--secondary-color);
+}

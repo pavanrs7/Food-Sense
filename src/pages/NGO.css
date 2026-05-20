@@ -1,0 +1,183 @@
+.ngo-container {
+  margin-left: 250px;
+  min-height: calc(100vh - 300px);
+  padding: 48px 32px;
+}
+
+.ngo-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.ngo-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.ngo-subtitle {
+  font-size: 18px;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ngo-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .ngo-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ngo-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ngo-card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.ngo-card-body {
+  padding: 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ngo-card-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.ngo-card-text {
+  color: #666;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.ngo-card-button {
+  display: inline-block;
+  background-color: #16a34a;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: center;
+  align-self: flex-start;
+}
+
+.ngo-card-button:hover {
+  background-color: #15803d;
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.map-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 48px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.map-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.map-wrapper {
+  width: 100%;
+  height: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ── Mobile (up to 767px) ── */
+@media (max-width: 767px) {
+  .ngo-container {
+    margin-left: 0;           /* sidebar is hidden on mobile */
+    padding: 24px 16px;
+  }
+
+  .ngo-title {
+    font-size: 26px;
+  }
+
+  .ngo-subtitle {
+    font-size: 15px;
+  }
+
+  .ngo-header {
+    margin-bottom: 28px;
+  }
+
+  .ngo-cards {
+    gap: 20px;
+  }
+
+  .ngo-card-body {
+    padding: 20px;
+  }
+
+  .ngo-card-title {
+    font-size: 20px;
+  }
+
+  .ngo-card-button {
+    width: 100%;           /* full-width tap target on small screens */
+    align-self: stretch;
+    text-align: center;
+  }
+
+  .map-container {
+    padding: 16px;
+    margin-top: 32px;
+  }
+
+  .map-title {
+    font-size: 20px;
+  }
+
+  .map-wrapper {
+    height: 320px;         /* shorter map on phones */
+  }
+}
+
+/* ── Tablet (768px – 1023px, sidebar still present) ── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ngo-container {
+    margin-left: 250px;
+    padding: 32px 20px;
+  }
+
+  .ngo-title {
+    font-size: 30px;
+  }
+
+  .map-wrapper {
+    height: 450px;
+  }
+}
