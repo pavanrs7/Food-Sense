@@ -14,7 +14,7 @@ const PandaBot = () => {
   const initialMessageSent = useRef(false);
 
   // Replace with your actual API key and consider using environment variables
-  const API_KEY = import.meta.env.VITE_API_KEY;
+  const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
   const genAI = new GoogleGenerativeAI(API_KEY);
 
   useEffect(() => {
@@ -67,7 +67,9 @@ const PandaBot = () => {
     setIsProcessing(true);
 
     try {
-      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
+      const model = genAI.getGenerativeModel({
+        model: "gemini-2.5-flash-lite",
+      });
 
       const prompt = `Analyze the nutritional content of this food in detail. 
       Provide a comprehensive breakdown including:
@@ -134,7 +136,9 @@ const PandaBot = () => {
     setIsProcessing(true);
 
     try {
-      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
+      const model = genAI.getGenerativeModel({
+        model: "gemini-2.5-flash-lite",
+      });
 
       const prompt = `Analyze the nutritional content of this food in detail. 
       Provide a comprehensive breakdown including:
